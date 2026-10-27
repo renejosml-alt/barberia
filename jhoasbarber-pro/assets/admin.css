@@ -1,0 +1,166 @@
+/* =====================================================
+   JhoasBarber Pro — Estilos Panel Admin
+   ===================================================== */
+
+body.admin-body {
+    display: flex;
+    min-height: 100vh;
+    background: #0e0e0e;
+}
+
+/* ---- SIDEBAR ---- */
+.sidebar {
+    width: 230px;
+    min-height: 100vh;
+    background: #151515;
+    border-right: 2px solid #c9a84c;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 50;
+}
+
+.sidebar-logo {
+    padding: 25px 20px;
+    border-bottom: 1px solid #2a2a2a;
+}
+.sidebar-logo h2 { color: #c9a84c; font-size: 1.1rem; }
+.sidebar-logo small { color: #666; font-size: .75rem; }
+
+.sidebar-nav { flex: 1; padding: 20px 0; }
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 22px;
+    color: #aaa;
+    font-size: .9rem;
+    transition: all .2s;
+    border-left: 3px solid transparent;
+}
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    color: #c9a84c;
+    background: #1e1a10;
+    border-left-color: #c9a84c;
+}
+.sidebar-nav a .icon { font-size: 1.1rem; width: 20px; }
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #2a2a2a;
+}
+.sidebar-footer a {
+    color: #c0392b;
+    font-size: .85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.sidebar-footer a:hover { color: #e74c3c; }
+
+/* ---- MAIN CONTENT ---- */
+.admin-main {
+    margin-left: 230px;
+    flex: 1;
+    padding: 30px 35px;
+    min-height: 100vh;
+}
+
+/* ---- STATS CARDS ---- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid #2a2a2a;
+    position: relative;
+    overflow: hidden;
+}
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 4px;
+    height: 100%;
+}
+.stat-card.gold::after   { background: #c9a84c; }
+.stat-card.green::after  { background: #27ae60; }
+.stat-card.blue::after   { background: #2980b9; }
+.stat-card.red::after    { background: #c0392b; }
+
+.stat-card h3 {
+    color: #888;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.stat-card .stat-num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #c9a84c;
+}
+.stat-card .stat-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    opacity: .15;
+}
+
+/* ---- ADMIN PANEL HEADER ---- */
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2a2a2a;
+}
+.admin-header h1 {
+    color: #c9a84c;
+    font-size: 1.5rem;
+}
+
+/* ---- PANEL BOX ---- */
+.panel {
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 1px solid #2a2a2a;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+.panel-header {
+    padding: 16px 22px;
+    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.panel-header h3 { color: #c9a84c; font-size: 1rem; }
+.panel-body { padding: 22px; }
+
+/* ---- FORM ADMIN ---- */
+.admin-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 900px) {
+    .sidebar { width: 60px; }
+    .sidebar-logo h2, .sidebar-logo small,
+    .sidebar-nav a span { display: none; }
+    .sidebar-nav a { justify-content: center; padding: 15px; }
+    .admin-main { margin-left: 60px; padding: 20px; }
+    .admin-form .form-row { grid-template-columns: 1fr; }
+}
